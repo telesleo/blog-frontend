@@ -28,7 +28,7 @@ export default function Register() {
       email, password, name, username,
     });
     if (response.message === 'User created successfully.') {
-      if (login(email, password)) {
+      if ((await login(email, password))) {
         navigate('/');
       }
     } else {
