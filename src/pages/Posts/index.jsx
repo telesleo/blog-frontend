@@ -5,9 +5,7 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
-    const allPosts = await request('/posts', {
-      method: 'GET',
-    });
+    const allPosts = await request('/posts', 'GET');
     setPosts(allPosts);
   };
 
