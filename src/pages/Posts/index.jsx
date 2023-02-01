@@ -15,11 +15,11 @@ export default function Posts() {
 
   return (
     posts.map((post) => (
-      <div>
+      <a href={`/post/${post.id}`}>
         <h2>{post.title}</h2>
         <h4>{post.author.name}</h4>
         <p>{post.description}</p>
-      </div>
+      </a>
     ))
   );
 }
