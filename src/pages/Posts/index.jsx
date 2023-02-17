@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import request from '../../utils/request';
+import PostList from '../../components/PostList';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -14,12 +15,6 @@ export default function Posts() {
   }, []);
 
   return (
-    posts.map((post) => (
-      <a href={`/post/${post.id}`}>
-        <h2>{post.title}</h2>
-        <h4>{post.author.name}</h4>
-        <p>{post.description}</p>
-      </a>
-    ))
+    <PostList posts={posts} />
   );
 }
