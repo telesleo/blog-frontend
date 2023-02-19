@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './style.module.css';
 
 export default function Description({ description }) {
   return (
-    <p>{description}</p>
+    <p title={description} className={styles.description}>{description}</p>
   );
 }
 
