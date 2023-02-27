@@ -1,8 +1,8 @@
 .post-card {
   background-color: var(--white);
   padding: 30px;
-  border: 2px solid var(--black);
-  box-shadow: 3px 3px 0 var(--black);
+  border: 1px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
   border-radius: 3px;
 }
 
