@@ -1,0 +1,9 @@
+.input {
+  padding: 12px;
+  font-size: var(--font-size1);
+  border-radius: var(--border-radius);
+}
+
+.input:focus {
+  outline: 1px solid var(--black);
+}
