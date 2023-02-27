@@ -5,3 +5,7 @@
   box-shadow: 3px 3px 0 var(--black);
   border-radius: 3px;
 }
+
+.post-card a > *:not(:last-child) {
+  margin-bottom: 10px;
+}
