@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Author from '../../components/Author';
+import Info from '../../components/Info';
+import PostContent from '../../components/PostContent';
+import PostTitle from '../../components/PostTitle';
 import request from '../../utils/request';
+import styles from './style.module.css';
 
 export default function Post() {
   const { id } = useParams();
@@ -26,12 +31,15 @@ export default function Post() {
 
   return (
     (post) && (
-    <div>
-      <h2>{post.title}</h2>
-      <h4>{post.author.name}</h4>
-      <p>{post.author.username}</p>
-      <p>{getDate(post.created_at)}</p>
-      <p>{post.content}</p>
+    <div id={styles.post}>
+      <PostTitle title={post.title} />
+      <div id={styles['author-date']}>
+        <Author username={post.author.username} />
+        <Info info={getDate(post.created_at)} />
+      </div>
+      <PostContent>
+        {post.content}
+      </PostContent>
     </div>
     )
   );
