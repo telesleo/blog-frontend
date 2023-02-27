@@ -4,6 +4,7 @@ import login from '../../utils/login';
 import request from '../../utils/request';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import TextButton from '../../components/TextButton';
 import styles from './style.module.css';
 
 export default function Register() {
@@ -118,8 +119,9 @@ export default function Register() {
       <Input type="password" placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
       <Input placeholder="Name" value={name} onChange={({ target }) => setName(target.value)} />
       <Input placeholder="Username" value={username} onChange={({ target }) => setUsername(target.value)} />
-      <p>{errorMessage}</p>
-      <Button onClick={register}>Sign Up</Button>
+      {(errorMessage) && <p>{errorMessage}</p>}
+      <Button id={styles['submit-button']} onClick={register}>Sign Up</Button>
+      <TextButton onClick={() => navigate('/login')}>Already have an account? Sign In</TextButton>
     </form>
   );
 }

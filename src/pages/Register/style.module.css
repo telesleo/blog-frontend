@@ -8,6 +8,10 @@
   height: 100vh;
 }
 
-#register > *:not(:last-child) {
-  margin-bottom: 20px;
+#register > * {
+  margin: 10px 0;
+}
+
+#submit-button {
+  margin: 30px 0;
 }
