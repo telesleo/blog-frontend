@@ -1,0 +1,5 @@
+.posts {
+  display: flex;
+  background-color: var(--color1);
+  padding: var(--padding);
+}

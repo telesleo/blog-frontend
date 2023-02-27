@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import request from '../../utils/request';
 import PostList from '../../components/PostList';
+import styles from './style.module.css';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -15,6 +16,8 @@ export default function Posts() {
   }, []);
 
   return (
-    <PostList posts={posts} />
+    <div className={styles.posts}>
+      <PostList posts={posts} />
+    </div>
   );
 }
