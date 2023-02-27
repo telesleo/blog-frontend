@@ -8,7 +8,7 @@
   height: 100vh;
 }
 
-#login > * {
+#login > input {
   margin: 10px 0;
 }
 

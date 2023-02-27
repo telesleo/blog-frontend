@@ -115,13 +115,40 @@ export default function Register() {
 
   return (
     <form id={styles.register}>
-      <Input type="email" placeholder="Email" value={email} onChange={({ target }) => setEmail(target.value)} />
-      <Input type="password" placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
-      <Input placeholder="Name" value={name} onChange={({ target }) => setName(target.value)} />
-      <Input placeholder="Username" value={username} onChange={({ target }) => setUsername(target.value)} />
-      {(errorMessage) && <p>{errorMessage}</p>}
-      <Button id={styles['submit-button']} onClick={register}>Sign Up</Button>
-      <TextButton onClick={() => navigate('/login')}>Already have an account? Sign In</TextButton>
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={({ target }) => setEmail(target.value)}
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={({ target }) => setPassword(target.value)}
+      />
+      <Input
+        placeholder="Name"
+        value={name}
+        onChange={({ target }) => setName(target.value)}
+      />
+      <Input
+        placeholder="Username"
+        value={username}
+        onChange={({ target }) => setUsername(target.value)}
+      />
+      {(errorMessage) && <p id={styles['error-message']}>{errorMessage}</p>}
+      <Button
+        id={styles['submit-button']}
+        onClick={register}
+      >
+        Sign Up
+      </Button>
+      <TextButton
+        onClick={() => navigate('/login')}
+      >
+        Already have an account? Sign In
+      </TextButton>
     </form>
   );
 }
