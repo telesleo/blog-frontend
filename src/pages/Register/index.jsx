@@ -4,6 +4,7 @@ import login from '../../utils/login';
 import request from '../../utils/request';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import styles from './style.module.css';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -112,9 +113,9 @@ export default function Register() {
   };
 
   return (
-    <form>
-      <Input placeholder="Email" value={email} onChange={({ target }) => setEmail(target.value)} />
-      <Input placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
+    <form id={styles.register}>
+      <Input type="email" placeholder="Email" value={email} onChange={({ target }) => setEmail(target.value)} />
+      <Input type="password" placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
       <Input placeholder="Name" value={name} onChange={({ target }) => setName(target.value)} />
       <Input placeholder="Username" value={username} onChange={({ target }) => setUsername(target.value)} />
       <p>{errorMessage}</p>
