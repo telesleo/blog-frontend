@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+html, body, #root, .App {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', monospace;
@@ -15,4 +19,9 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+input, button {
+  border: 0;
+  outline: 0;
 }
