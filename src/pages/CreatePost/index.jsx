@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import request from '../../utils/request';
+import MainTitle from '../../components/MainTitle';
+import Textarea from '../../components/Textarea';
+import Button from '../../components/Button';
+import styles from './style.module.css';
 
 export default function CreatePost() {
   const navigate = useNavigate();
@@ -8,16 +12,6 @@ export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
-
-  const setState = {
-    title: setTitle,
-    description: setDescription,
-    content: setContent,
-  };
-
-  const handleInput = ({ target }) => {
-    setState[target.name](target.value);
-  };
 
   const createPost = async () => {
     const response = await request('/posts', 'POST', {
@@ -31,19 +25,27 @@ export default function CreatePost() {
   };
 
   return (
-    <div>
-      <label htmlFor="post-title">
-        {'Title: '}
-        <input id="post-title" name="title" type="text" value={title} onChange={handleInput} />
-      </label>
-      <label htmlFor="post-description">
-        {'Description: '}
-        <textarea id="post-description" name="description" cols="30" rows="5" value={description} onChange={handleInput} />
-      </label>
-      <label htmlFor="post-content">
-        <textarea id="post-content" name="content" cols="30" rows="10" value={content} onChange={handleInput} />
-      </label>
-      <button type="button" onClick={createPost}>Create Post</button>
-    </div>
+    <form id={styles['create-post']}>
+      <MainTitle
+        title="Create a Post"
+      />
+      <Textarea
+        placeholder="Title"
+        value={title}
+        onChange={({ target }) => setTitle(target.value)}
+        rows={2}
+      />
+      <Textarea
+        placeholder="Content"
+        onChange={({ target }) => setContent(target.value)}
+        rows={9}
+      />
+      <Textarea
+        placeholder="Description (optional)"
+        onChange={({ target }) => setDescription(target.value)}
+        rows={5}
+      />
+      <Button id={styles['submit-button']} onClick={createPost}>Publish</Button>
+    </form>
   );
 }

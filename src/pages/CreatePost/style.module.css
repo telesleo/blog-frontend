@@ -1,0 +1,19 @@
+#create-post {
+  background-color: var(--color1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 var(--padding2);
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+#create-post > textarea, #create-post > button {
+  margin: 10px 0;
+}
+
