@@ -1,8 +1,6 @@
 .post-list {
-  background-color: var(--color1);
   display: flex;
   flex-direction: column;
-  padding: 30px;
 }
 
 .post-list > *:not(:last-child) {
