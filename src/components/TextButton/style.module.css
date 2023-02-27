@@ -1,0 +1,6 @@
+.button {
+  text-decoration: underline;
+  background-color: inherit;
+  font-size: var(--font-size1);
+}
+
