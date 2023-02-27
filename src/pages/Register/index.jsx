@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import login from '../../utils/login';
 import request from '../../utils/request';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -11,17 +13,6 @@ export default function Register() {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  const setState = {
-    email: setEmail,
-    password: setPassword,
-    name: setName,
-    username: setUsername,
-  };
-
-  const handleInput = ({ target }) => {
-    setState[target.id](target.value);
-  };
 
   const isEmailValid = () => {
     if (!email) {
@@ -103,7 +94,9 @@ export default function Register() {
     return false;
   };
 
-  const register = async () => {
+  const register = async (event) => {
+    event.preventDefault();
+
     if (validateFields()) {
       const response = await request('/users/register', 'POST', {
         email, password, name, username,
@@ -119,25 +112,13 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <label htmlFor="email">
-        Email:
-        <input type="email" id="email" value={email} onChange={handleInput} />
-      </label>
-      <label htmlFor="password">
-        Password:
-        <input type="password" id="password" value={password} onChange={handleInput} />
-      </label>
-      <label htmlFor="name">
-        Name:
-        <input type="name" id="name" value={name} onChange={handleInput} />
-      </label>
-      <label htmlFor="username">
-        Username:
-        <input type="username" id="username" value={username} onChange={handleInput} />
-      </label>
+    <form>
+      <Input placeholder="Email" value={email} onChange={({ target }) => setEmail(target.value)} />
+      <Input placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
+      <Input placeholder="Name" value={name} onChange={({ target }) => setName(target.value)} />
+      <Input placeholder="Username" value={username} onChange={({ target }) => setUsername(target.value)} />
       <p>{errorMessage}</p>
-      <button type="button" onClick={register}>register</button>
-    </div>
+      <Button onClick={register}>Sign Up</Button>
+    </form>
   );
 }
