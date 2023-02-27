@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Author from '../../components/Author';
 import Info from '../../components/Info';
 import PostContent from '../../components/PostContent';
-import PostTitle from '../../components/PostTitle';
+import MainTitle from '../../components/MainTitle';
 import request from '../../utils/request';
 import styles from './style.module.css';
 
@@ -32,7 +32,7 @@ export default function Post() {
   return (
     (post) && (
     <div id={styles.post}>
-      <PostTitle title={post.title} />
+      <MainTitle title={post.title} />
       <div id={styles['author-date']}>
         <Author username={post.author.username} />
         <Info info={getDate(post.created_at)} />
