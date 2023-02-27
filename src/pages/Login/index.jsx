@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import login from '../../utils/login';
+import styles from './style.module.css';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,10 +20,10 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <form id={styles.login}>
       <Input type="email" placeholder="Email" value={email} onChange={({ target }) => setEmail(target.value)} />
       <Input type="password" placeholder="Password" value={password} onChange={({ target }) => setPassword(target.value)} />
       <Button onClick={logIn}>Log In</Button>
-    </div>
+    </form>
   );
 }

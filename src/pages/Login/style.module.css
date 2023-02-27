@@ -1,0 +1,13 @@
+#login {
+  background-color: var(--color1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 var(--padding2);
+  height: 100vh;
+}
+
+#login > *:not(:last-child) {
+  margin-bottom: 20px;
+}
