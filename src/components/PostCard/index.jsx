@@ -12,8 +12,8 @@ export default function PostCard({
     <div className={styles['post-card']}>
       <a href={`/post/${id}`}>
         <Title title={title} />
-        <Author username={username} />
-        <Description description={description} />
+        {(username) && <Author username={username} />}
+        {(description) && <Description description={description} />}
       </a>
     </div>
   );
@@ -22,6 +22,11 @@ export default function PostCard({
 PostCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  username: PropTypes.string,
+  description: PropTypes.string,
+};
+
+PostCard.defaultProps = {
+  username: null,
+  description: null,
 };
