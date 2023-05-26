@@ -34,10 +34,10 @@ export default function CreatePost() {
       description,
       content,
     });
-    if (response.data.message === 'Post created successfully.') {
+    if (response.status === 201) {
       navigate('/');
     } else {
-      setErrorMessage(response.message);
+      setErrorMessage(response.data.message);
     }
   };
 
