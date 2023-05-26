@@ -12,7 +12,7 @@ export default function User() {
 
   const getUser = async () => {
     const response = await request(`/users/${username}`, 'GET');
-    setUser(response);
+    setUser(response.data);
   };
 
   useEffect(() => {
@@ -25,13 +25,17 @@ export default function User() {
         <img id={styles['profile-picture']} src="/images/profile_picture.png" alt="profile" />
         <h2 id={styles.name}>{user.name}</h2>
         <Author username={user.username} />
-        <div id={styles.description}>
-          <Description description={user.about} />
-        </div>
+        { (user?.about) && (
+          <div id={styles.description}>
+            <Description description={user.about} />
+          </div>
+        ) }
       </section>
-      <section id={styles['posts-section']}>
-        {(user) && <PostList posts={user.posts} />}
-      </section>
+      { (user?.posts?.length > 0) && (
+        <section id={styles['posts-section']}>
+          {(user) && <PostList posts={user.posts} />}
+        </section>
+      ) }
     </div>
   );
 }
