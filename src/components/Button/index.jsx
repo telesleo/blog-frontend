@@ -2,9 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.module.css';
 
-export default function Button({ children, id, onClick }) {
+export default function Button({
+  children, id, onClick, color,
+}) {
   return (
-    <button id={id} className={styles.button} type="submit" onClick={onClick}>{children}</button>
+    <button
+      id={id}
+      className={`${styles.button} ${styles[color]}`}
+      type="submit"
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
 
@@ -14,4 +23,9 @@ Button.propTypes = {
   ]).isRequired,
   id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  color: PropTypes.string,
+};
+
+Button.defaultProps = {
+  color: 'default',
 };
