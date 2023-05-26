@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import login from '../../utils/login';
+import login, { validate } from '../../utils/login';
 import request from '../../utils/request';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -97,21 +97,31 @@ export default function Register() {
     return false;
   };
 
+  const validateUser = async () => {
+    if (!(await login(email, password))) return;
+
+    const user = await validate();
+
+    if (!user) return;
+
+    navigate('/');
+  };
+
   const register = async (event) => {
     event.preventDefault();
 
-    if (validateFields()) {
-      const response = await request('/users/register', 'POST', {
-        email, password, name, username,
-      });
-      if (response.message === 'User created successfully.') {
-        if ((await login(email, password))) {
-          navigate('/');
-        }
-      } else {
-        setErrorMessage(response.message);
-      }
+    if (!validateFields()) return;
+
+    const response = await request('/users/register', 'POST', {
+      email, password, name, username,
+    });
+
+    if (response.data.message !== 'User created successfully.') {
+      setErrorMessage(response.data.message);
+      return;
     }
+
+    validateUser();
   };
 
   return (
