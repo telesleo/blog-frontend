@@ -5,13 +5,15 @@ import MainTitle from '../../components/MainTitle';
 import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
 import styles from './style.module.css';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function CreatePost() {
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState(undefined);
+  const [description, setDescription] = useState(undefined);
+  const [content, setContent] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState(undefined);
 
   const createPost = async (event) => {
     event.preventDefault();
@@ -23,6 +25,8 @@ export default function CreatePost() {
     });
     if (response.message === 'Post created successfully.') {
       navigate('/');
+    } else {
+      setErrorMessage(response.message);
     }
   };
 
@@ -47,6 +51,7 @@ export default function CreatePost() {
         onChange={({ target }) => setDescription(target.value)}
         rows={5}
       />
+      <ErrorMessage message={errorMessage} />
       <Button id={styles['submit-button']} onClick={createPost}>Publish</Button>
     </form>
   );
