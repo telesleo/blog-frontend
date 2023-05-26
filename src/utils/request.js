@@ -11,5 +11,5 @@ export default async function request(endpoint, method, body) {
     },
   });
   const data = await response.json();
-  return data;
+  return { data, status: response.status };
 }

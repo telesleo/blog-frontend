@@ -13,7 +13,7 @@ export default function Post() {
   const [post, setPost] = useState();
 
   const getPost = async () => {
-    const postData = await request(`/posts/${id}`, 'GET');
+    const postData = (await request(`/posts/${id}`, 'GET')).data;
     setPost(postData);
   };
 

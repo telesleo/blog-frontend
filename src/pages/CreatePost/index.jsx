@@ -23,7 +23,7 @@ export default function CreatePost() {
       description,
       content,
     });
-    if (response.message === 'Post created successfully.') {
+    if (response.data.message === 'Post created successfully.') {
       navigate('/');
     } else {
       setErrorMessage(response.message);
