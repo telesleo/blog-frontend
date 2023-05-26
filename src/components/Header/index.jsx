@@ -1,10 +1,20 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from '../Button';
 import styles from './header.module.css';
+import { validate } from '../../utils/login';
 
 export default function Header() {
   const navigate = useNavigate();
+
+  const [user, setUser] = useState();
+
+  const getUser = async () => setUser((await validate()));
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const navigateToCreatePost = () => {
     navigate('post/create');
@@ -12,7 +22,29 @@ export default function Header() {
 
   return (
     <div id={styles.header}>
-      <Button color="white" onClick={navigateToCreatePost}>Create New Post</Button>
+      { (user?.name) ? (
+        <>
+          <Link to={`/${user?.username}`}>
+            <h3>{user?.name}</h3>
+          </Link>
+          <Button color="white" onClick={navigateToCreatePost}>Create New Post</Button>
+        </>
+      ) : (
+        <>
+          <Link to="/register">
+            <h4>Create Account</h4>
+          </Link>
+          <Link to="/login">
+            <h4>Log in</h4>
+          </Link>
+        </>
+      )}
     </div>
   );
 }
+
+Header.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};

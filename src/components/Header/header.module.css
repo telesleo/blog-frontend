@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 15px var(--padding);
   background-color: var(--color2);
-  color: var(--color1);
+  color: var(--white);
+}
+
+#login-register-links {
+  display: flex;
+  flex-direction: row;
 }
