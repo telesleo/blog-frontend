@@ -6,6 +6,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import TextButton from '../../components/TextButton';
 import styles from './style.module.css';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -137,7 +138,7 @@ export default function Register() {
         value={username}
         onChange={({ target }) => setUsername(target.value)}
       />
-      {(errorMessage) && <p id={styles['error-message']}>{errorMessage}</p>}
+      <ErrorMessage message={errorMessage} />
       <Button
         id={styles['submit-button']}
         onClick={register}
