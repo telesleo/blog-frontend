@@ -13,7 +13,9 @@ export default function CreatePost() {
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
 
-  const createPost = async () => {
+  const createPost = async (event) => {
+    event.preventDefault();
+
     const response = await request('/posts', 'POST', {
       title,
       description,
