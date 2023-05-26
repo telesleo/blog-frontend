@@ -11,10 +11,10 @@ import { validate } from '../../utils/login';
 export default function CreatePost() {
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState(undefined);
-  const [description, setDescription] = useState(undefined);
-  const [content, setContent] = useState(undefined);
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [title, setTitle] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [content, setContent] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const validateUser = async () => {
     if (!(await validate())) {
