@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import request from '../../utils/request';
 import MainTitle from '../../components/MainTitle';
@@ -6,6 +6,7 @@ import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
 import styles from './style.module.css';
 import ErrorMessage from '../../components/ErrorMessage';
+import { validate } from '../../utils/login';
 
 export default function CreatePost() {
   const navigate = useNavigate();
@@ -14,6 +15,16 @@ export default function CreatePost() {
   const [description, setDescription] = useState(undefined);
   const [content, setContent] = useState(undefined);
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const validateUser = async () => {
+    if (!(await validate())) {
+      navigate('/register', { state: { nextLocationPath: '/post/create' } });
+    }
+  };
+
+  useEffect(() => {
+    validateUser();
+  }, []);
 
   const createPost = async (event) => {
     event.preventDefault();

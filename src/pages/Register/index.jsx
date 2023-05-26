@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import login, { validate } from '../../utils/login';
 import request from '../../utils/request';
 import Input from '../../components/Input';
@@ -10,6 +10,7 @@ import ErrorMessage from '../../components/ErrorMessage';
 
 export default function Register() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -104,7 +105,8 @@ export default function Register() {
 
     if (!user) return;
 
-    navigate('/');
+    const { nextLocationPath } = location.state;
+    navigate(nextLocationPath || '/');
   };
 
   const register = async (event) => {
