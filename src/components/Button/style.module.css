@@ -21,3 +21,14 @@
   background-color: var(--white);
   color: var(--black);
 }
+
+.transparent {
+  background-color: inherit;
+  color: var(--black);
+  box-shadow: none;
+  border: 0;
+}
+
+.transparent:active {
+  transform: translate(0px, 0px);
+}
