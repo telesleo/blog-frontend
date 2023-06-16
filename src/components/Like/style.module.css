@@ -1,0 +1,16 @@
+#like-button {
+  margin: 10px auto;
+  width: fit-content;
+}
+
+#like-icon, #like-count {
+  margin: 0;
+}
+
+#like-icon {
+  font-size: 35px;
+}
+
+#like-count {
+  font-size: 16px;
+}
