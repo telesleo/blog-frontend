@@ -12,9 +12,12 @@ export default function PostCard({
     <div className={styles['post-card']}>
       <a href={`/post/${id}`}>
         <Title title={title} />
-        {(username) && <Author username={username} />}
+      </a>
+      {(username) && <Author username={username} />}
+      <a href={`/post/${id}`}>
         {(description) && <Description description={description} />}
       </a>
+
     </div>
   );
 }
