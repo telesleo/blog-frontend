@@ -21,11 +21,12 @@ Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   color: PropTypes.string,
 };
 
 Button.defaultProps = {
+  id: '',
   color: 'default',
 };
