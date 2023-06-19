@@ -2,6 +2,8 @@
   padding: 12px;
   font-size: var(--font-size1);
   border-radius: var(--border-radius);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .textarea:focus {
