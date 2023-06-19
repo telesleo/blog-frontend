@@ -74,5 +74,5 @@ export default function Like({ postId }) {
 }
 
 Like.propTypes = {
-  postId: PropTypes.number.isRequired,
+  postId: PropTypes.string.isRequired,
 };
