@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CommentList from '../CommentList';
 import request from '../../utils/request';
 import styles from './style.module.css';
+import NewComment from '../NewComment';
 
 export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
@@ -18,6 +19,7 @@ export default function CommentSection({ postId }) {
   return (
     <div>
       <h2 id={styles['comments-heading']}>Comments</h2>
+      <NewComment postId={postId} getComments={getComments} />
       <CommentList comments={comments} />
     </div>
   );
