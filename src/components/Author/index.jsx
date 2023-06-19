@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
-export default function Author({ username }) {
+export default function Author({ username, className, color }) {
   return (
     <Link to={`/${username}`}>
-      <h4 className={styles.author}>{`@${username}`}</h4>
+      <h4 className={`${styles.author} ${className} ${styles[color]}`}>{`@${username}`}</h4>
     </Link>
   );
 }
 
 Author.propTypes = {
   username: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };

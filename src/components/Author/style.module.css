@@ -2,3 +2,7 @@
   color: var(--color2);
   font-weight: 600;
 }
+
+.gray {
+  color: var(--color3);
+}
