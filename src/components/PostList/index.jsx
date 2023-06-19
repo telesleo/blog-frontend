@@ -22,5 +22,5 @@ export default function PostList({ posts }) {
 }
 
 PostList.propTypes = {
-  posts: PropTypes.arrayOf.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
