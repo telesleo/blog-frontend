@@ -28,5 +28,9 @@ export default function Posts({ user }) {
 }
 
 Posts.propTypes = {
-  user: PropTypes.objectOf.isRequired,
+  user: PropTypes.shape({}),
+};
+
+Posts.defaultProps = {
+  user: null,
 };
