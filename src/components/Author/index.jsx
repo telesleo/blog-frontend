@@ -13,6 +13,11 @@ export default function Author({ username, className, color }) {
 
 Author.propTypes = {
   username: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  color: PropTypes.string,
+};
+
+Author.defaultProps = {
+  className: '',
+  color: 'green',
 };
