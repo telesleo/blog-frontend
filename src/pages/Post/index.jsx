@@ -8,6 +8,7 @@ import request from '../../utils/request';
 import styles from './style.module.css';
 import Like from '../../components/Like';
 import CommentSection from '../../components/CommentSection';
+import getDate from '../../utils/getDate';
 
 export default function Post() {
   const { id } = useParams();
@@ -22,14 +23,6 @@ export default function Post() {
   useEffect(() => {
     getPost();
   }, []);
-
-  const getDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = {
-      year: 'numeric', month: 'long', day: 'numeric',
-    };
-    return date.toLocaleDateString('en-US', options);
-  };
 
   return (
     (post) && (
