@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Button from '../Button';
 import styles from './header.module.css';
 import { validate } from '../../utils/login';
@@ -42,9 +41,3 @@ export default function Header() {
     </div>
   );
 }
-
-Header.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-};
