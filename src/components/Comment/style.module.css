@@ -1,5 +1,8 @@
-.comment {
-  margin: 30px 0;
+.comment-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .user-info {
@@ -8,6 +11,14 @@
   align-items: center;
 }
 
+.comment p {
+  margin: 0;
+}
+
 .username {
   margin: 0 8px;
+}
+
+.content {
+  padding: 5px 0;
 }
