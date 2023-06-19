@@ -7,6 +7,7 @@ import MainTitle from '../../components/MainTitle';
 import request from '../../utils/request';
 import styles from './style.module.css';
 import Like from '../../components/Like';
+import CommentSection from '../../components/CommentSection';
 
 export default function Post() {
   const { id } = useParams();
@@ -42,6 +43,8 @@ export default function Post() {
         {post.content}
       </PostContent>
       <Like postId={id} />
+      <hr />
+      <CommentSection postId={id} />
     </div>
     )
   );
