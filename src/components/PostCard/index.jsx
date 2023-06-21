@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Title from '../Title';
 import Author from '../Author';
 import Description from '../Description';
@@ -10,14 +11,13 @@ export default function PostCard({
 }) {
   return (
     <div className={styles['post-card']}>
-      <a href={`/post/${id}`}>
+      <Link to={`/post/${id}`}>
         <Title title={title} />
-      </a>
+      </Link>
       {(username) && <Author username={username} />}
-      <a href={`/post/${id}`}>
+      <Link to={`/post/${id}`}>
         {(description) && <Description description={description} />}
-      </a>
-
+      </Link>
     </div>
   );
 }
