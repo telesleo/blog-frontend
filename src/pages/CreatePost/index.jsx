@@ -43,27 +43,30 @@ export default function CreatePost() {
 
   return (
     <form id={styles['create-post']}>
-      <MainTitle
-        title="Create a Post"
-      />
-      <Textarea
-        placeholder="Title"
-        value={title}
-        onChange={({ target }) => setTitle(target.value)}
-        rows={2}
-      />
-      <Textarea
-        placeholder="Content"
-        onChange={({ target }) => setContent(target.value)}
-        rows={9}
-      />
-      <Textarea
-        placeholder="Description (optional)"
-        onChange={({ target }) => setDescription(target.value)}
-        rows={5}
-      />
-      <ErrorMessage message={errorMessage} />
-      <Button id={styles['submit-button']} onClick={createPost}>Publish</Button>
+      <div id={styles['create-post-content']}>
+        <MainTitle
+          className={styles.title}
+          title="Create a Post"
+        />
+        <Textarea
+          placeholder="Title"
+          value={title}
+          onChange={({ target }) => setTitle(target.value)}
+          rows={2}
+        />
+        <Textarea
+          placeholder="Content"
+          onChange={({ target }) => setContent(target.value)}
+          rows={9}
+        />
+        <Textarea
+          placeholder="Description (optional)"
+          onChange={({ target }) => setDescription(target.value)}
+          rows={5}
+        />
+        <ErrorMessage message={errorMessage} />
+        <Button id={styles['submit-button']} onClick={createPost}>Publish</Button>
+      </div>
     </form>
   );
 }

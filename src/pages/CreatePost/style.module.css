@@ -1,19 +1,25 @@
 #create-post {
   background-color: var(--color1);
+  padding: 0 var(--padding2);
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#create-post-content {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  padding: 0 var(--padding2);
+  max-width: var(--max-width);
   height: 100vh;
-  text-align: center;
+  gap: 10px;
+  margin: auto;
 }
 
-h1 {
-  margin: 10px 0;
+#submit-button {
+  max-width: 200px;
+  width: 100%;
 }
 
-#create-post > textarea, #create-post > button {
-  margin: 10px 0;
-}
 
