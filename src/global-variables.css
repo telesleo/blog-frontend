@@ -6,7 +6,9 @@
   --black: rgb(19, 19, 19);
   --padding: 30px;
   --padding2: 50px;
+  --padding3: 120px;
   --border-radius: 3px;
   --font-size1: 15px;
   --font-size2: 20px;
+  --max-width: 1200px;
 }
