@@ -26,7 +26,7 @@ export default function NewComment({ postId, getComments }) {
   return (
     <div id={styles['new-comment']}>
       <Textarea value={content} onChange={handleContentInput} placeholder="Write a comment." rows={5} />
-      {(content) && (<Button onClick={sendComment}>Send Comment</Button>)}
+      {(content) && (<Button id={styles['send-comment-button']} onClick={sendComment}>Send Comment</Button>)}
     </div>
   );
 }
