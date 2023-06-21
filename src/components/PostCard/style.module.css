@@ -4,8 +4,11 @@
   border: 1px solid var(--black);
   box-shadow: 2px 2px 0 var(--black);
   border-radius: 3px;
-}
-
-.post-card a > *:not(:last-child) {
-  margin-bottom: 10px;
+  max-width: 300px;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }

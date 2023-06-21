@@ -1,8 +1,8 @@
 .post-list {
   display: flex;
-  flex-direction: column;
-}
-
-.post-list > *:not(:last-child) {
-  margin-bottom: 15px;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
 }
