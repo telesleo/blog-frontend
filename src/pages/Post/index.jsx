@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Author from '../../components/Author';
 import Info from '../../components/Info';
 import PostContent from '../../components/PostContent';
@@ -9,8 +10,9 @@ import styles from './style.module.css';
 import Like from '../../components/Like';
 import CommentSection from '../../components/CommentSection';
 import getDate from '../../utils/getDate';
+import Header from '../../components/Header';
 
-export default function Post() {
+export default function Post({ user }) {
   const { id } = useParams();
 
   const [post, setPost] = useState();
@@ -25,20 +27,27 @@ export default function Post() {
   }, []);
 
   return (
-    (post) && (
-    <div id={styles.post}>
-      <MainTitle title={post.title} />
-      <div id={styles['author-date']}>
-        <Author username={post.author.username} />
-        <Info info={getDate(post.created_at)} />
+    <>
+      <Header user={user} />
+      {(post) && (
+      <div id={styles.post}>
+        <MainTitle title={post.title} />
+        <div id={styles['author-date']}>
+          <Author username={post.author.username} />
+          <Info info={getDate(post.created_at)} />
+        </div>
+        <PostContent>
+          {post.content}
+        </PostContent>
+        <Like postId={id} />
+        <hr />
+        <CommentSection postId={id} />
       </div>
-      <PostContent>
-        {post.content}
-      </PostContent>
-      <Like postId={id} />
-      <hr />
-      <CommentSection postId={id} />
-    </div>
-    )
+      )}
+    </>
   );
 }
+
+Post.propTypes = {
+  user: PropTypes.shape({}).isRequired,
+};
