@@ -1,6 +1,10 @@
 #like-button {
-  margin: 10px auto;
+  margin: 20px auto;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
 }
 
 #like-icon, #like-count {
@@ -13,4 +17,21 @@
 
 #like-count {
   font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  #like-button {
+    flex-direction: row;
+    margin: 20px 0;
+    padding: inherit 0;
+    gap: 5px;
+  }
+
+  #like-icon {
+    font-size: 27px;
+  }
+
+  #like-count {
+    font-size: 15px;
+  }
 }
