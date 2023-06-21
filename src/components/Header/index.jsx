@@ -21,23 +21,25 @@ export default function Header() {
 
   return (
     <div id={styles.header}>
-      { (user?.name) ? (
-        <>
-          <Link to={`/${user?.username}`}>
-            <h3>{user?.name}</h3>
-          </Link>
-          <Button color="white" onClick={navigateToCreatePost}>Create New Post</Button>
-        </>
-      ) : (
-        <>
-          <Link to="/register">
-            <h4>Create Account</h4>
-          </Link>
-          <Link to="/login">
-            <h4>Log in</h4>
-          </Link>
-        </>
-      )}
+      <div id={styles['header-content']}>
+        { (user?.name) ? (
+          <>
+            <Link to={`/${user?.username}`}>
+              <h3>{user?.name}</h3>
+            </Link>
+            <Button color="white" onClick={navigateToCreatePost}>Create New Post</Button>
+          </>
+        ) : (
+          <>
+            <Link to="/register">
+              <h4>Create Account</h4>
+            </Link>
+            <Link to="/login">
+              <h4>Log in</h4>
+            </Link>
+          </>
+        )}
+      </div>
     </div>
   );
 }
