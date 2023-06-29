@@ -2,17 +2,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color1);
+  min-height: 100%;
+  height: fit-content;
 }
 
-#user section {
+#user-section {
+  width: 100%;
+  padding: var(--padding);
+  background-color: var(--white);
+  box-sizing: border-box;
+}
+
+#user-section-container {
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--padding);
+  justify-content: space-between;
+  max-width: calc(var(--max-width) / 1.5);
+}
+
+#name-and-username-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #posts-section {
+  padding: var(--padding);
   background-color: var(--color1);
+}
+
+#posts-section-container {
+  max-width: var(--max-width);
 }
 
 #user-section img {
@@ -21,7 +45,7 @@
 
 #description {
   margin-top: 20px;
-  padding: 0 30px;
+  max-width: 400px;
 }
 
 #profile-picture {
@@ -33,4 +57,24 @@
 #name {
   font-size: var(--font-size2);
   font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  #posts-section {
+    padding: var(--padding) var(--padding3);
+  }
+
+  #user-section {
+    padding: var(--padding) var(--padding3);
+  }
+
+  #name-and-username-container {
+    flex-direction: row;
+  }
+
+  #user-section-container {
+    flex-direction: row;
+    text-align: end;
+    gap: 20px;
+  }
 }
