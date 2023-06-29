@@ -1,7 +1,8 @@
 .posts {
   background-color: var(--color1);
   padding: var(--padding);
-  height: 100%;
+  height: fit-content;
+  min-height: 100%;
 }
 
 @media screen and (min-width: 768px) {
