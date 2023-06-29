@@ -17,12 +17,21 @@
   margin: auto;
 }
 
+h1 {
+  margin: 10px 0;
+}
+
+#create-post > textarea, #create-post > button {
+  margin: 10px 0;
+}
+
 #submit-button {
+  max-width: 200px;
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  #submit-button {
-    max-width: 200px;
+  #create-post {
+    padding: 0 var(--padding3);
   }
 }
