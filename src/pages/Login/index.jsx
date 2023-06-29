@@ -22,29 +22,31 @@ export default function Login() {
 
   return (
     <form id={styles.login}>
-      <Input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={({ target }) => setEmail(target.value)}
-      />
-      <Input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={({ target }) => setPassword(target.value)}
-      />
-      <Button
-        id={styles['submit-button']}
-        onClick={logIn}
-      >
-        Log In
-      </Button>
-      <TextButton
-        onClick={() => navigate('/register')}
-      >
-        Don&apos;t have an account? Sign Up
-      </TextButton>
+      <div id={styles['login-container']}>
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <Button
+          id={styles['submit-button']}
+          onClick={logIn}
+        >
+          Log In
+        </Button>
+        <TextButton
+          onClick={() => navigate('/register')}
+        >
+          Don&apos;t have an account? Sign Up
+        </TextButton>
+      </div>
     </form>
   );
 }
